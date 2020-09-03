@@ -1,0 +1,14 @@
+<form [formGroup]="addForm" (ngSubmit)="addUser();" class="form">
+  <div class="form-group w-25">
+    <label for="id">Id : </label>
+    <input type="number" name="id" id="" class="form-control" formControlName="id" readonly>
+  </div>
+  <div class="form-group w-25">
+    <label for="name">Name : </label>
+    <input type="text" name="name" id="" class="form-control"
+      [class.is-invalid]="addForm.get('name').invalid&&(addForm.get('name').touched||trySubmit)" formControlName="name">
+    <small [style.display]="(addForm.get('name').invalid&&(addForm.get('name').touched||trySubmit))?'':'none'">Name is
+      required</small>
+  </div>
+  <button style="margin-left: 30px;">Add User</button>
+</form>
